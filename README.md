@@ -1,1 +1,1 @@
-# Higher Me Java Application!!
+# Higher Me Java Application
