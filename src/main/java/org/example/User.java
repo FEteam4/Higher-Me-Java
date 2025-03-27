@@ -1,0 +1,78 @@
+package org.example;
+
+import java.util.HashMap;
+import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class User {
+    @JsonProperty private String name;
+    @JsonProperty private String gender;
+    @JsonProperty private Map<String, Integer> stats;
+    @JsonProperty private int failCount = 0;
+    @JsonProperty private boolean success = false;
+
+    public User(){
+        this.stats = new HashMap<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public Map<String, Integer> getStats() {
+        return stats;
+    }
+
+    public int getFailCount() {
+        return failCount;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public int getTotalStats() {
+        return stats.values().stream().mapToInt(Integer::intValue).sum();
+    }
+
+    public User(String name, String gender) {
+        this.name = name;
+        this.gender = gender;
+        this.stats = new HashMap<>();
+
+        // 명시적으로 키 설정
+        stats.put("개발능력", 50);
+        stats.put("코테실력", 50);
+        stats.put("CS지식", 50);
+        stats.put("PT능력", 50);
+        stats.put("외국어", 50);
+        stats.put("건강", 100);
+    }
+
+    // ✅ 문자열 키 기반으로 스탯 업데이트
+    public void updateStat(String key, int value) {
+        if (stats.containsKey(key)) {
+            stats.put(key, stats.get(key) + value);
+        } else {
+            System.out.println("존재하지 않는 스탯 키입니다: " + key);
+        }
+    }
+
+    public void showStats() {
+        System.out.println("--- 사용자 정보 ---");
+        System.out.println("이름: " + name + ", 성별: " + gender);
+        for (Map.Entry<String, Integer> entry : stats.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        System.out.println("실패 횟수: " + failCount);
+        System.out.println("합격 여부: " + (success ? "합격" : "미합격"));
+    }
+
+//    public void showSummary() {
+//        System.out.println(name + " | 실패: " + failCount + "회 | 스탯 합계: " + getTotalStats());
+//    }
+}
