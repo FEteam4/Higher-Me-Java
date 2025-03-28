@@ -15,7 +15,7 @@ public class Main {
 
         while (true) {
             System.out.println("\n=== 시작 CLI ===");
-            System.out.println("[1️⃣. 메뉴얼] [2️⃣. 사용자 등록] [3️⃣. 서비스 실행] [4️⃣. 결과] [5️⃣. 🛑 종료]");
+            System.out.println("[📋 1️⃣. 메뉴얼] [🔐 2️⃣. 사용자 등록] [💼 3️⃣. 서비스 실행] [🥇 4️⃣. 결과] [🛑 5️⃣. 종료]");
             String input = sc.nextLine();
             int choice = Integer.parseInt(input);
             switch (choice) {
@@ -27,7 +27,8 @@ public class Main {
                     break;
                 case 3: // 3. 서비스 실행
 //                    runService();
-                    WordQuizGame1.runGame(sc); // WordQuizGame1 실행
+                    // WordQuizGame1.runGame(sc); // 빈칸 뚫은 VER. WordQuizGame1 실행
+                    CrosswordGame1.run(); // Crossword VER. CrosswordGame1 실행
                     break;
                 case 4: // 4. 결과
                     showResults();
@@ -58,8 +59,8 @@ public class Main {
     public static void showResults() {
         int randomNo = ThreadLocalRandom.current().nextInt(1, 6); // 선지 랜덤 선택
 
-        // certification.json 부분은 사용자가 선택한(입력받은) 활동의 값을 받아와야 함
-        List<ActivityOption> certification = ActivityLoader.getOptionsByNo(randomNo, "certification.json");
+        // certification 부분은 사용자가 선택한(입력받은) 활동의 값을 받아와야 함
+        List<ActivityOption> certification = ActivityLoader.getOptionsByNo(randomNo, "certification");
 
         for (ActivityOption option : certification) {
             System.out.println(option.option);
