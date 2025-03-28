@@ -2,14 +2,14 @@ package org.example;
 
 import java.util.HashMap;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
-    @JsonProperty private String name;
-    @JsonProperty private String gender;
-    @JsonProperty private Map<String, Integer> stats;
-    @JsonProperty private int failCount = 0;
-    @JsonProperty private boolean success = false;
+    private String name;
+    private String gender;
+    private Map<String, Integer> stats;
+    private int failCount = 0;
+    private boolean success = false;
+    private int totalStats;
 
     public User(){
         this.stats = new HashMap<>();
