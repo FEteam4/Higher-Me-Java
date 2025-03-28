@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application' // ← 반드시 있어야 run { ... } 이 작동함
 }
 
 group = 'org.example'
@@ -16,9 +17,17 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.16.0'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.16.0'
-
 }
 
 test {
     useJUnitPlatform()
+}
+
+application {
+    // 👇 실행할 메인 클래스 (package 포함해서 정확하게!)
+    mainClass = 'org.example.Main'
+}
+
+run {
+    standardInput = System.in // ✅ 입력을 Scanner가 받을 수 있게 함
 }
