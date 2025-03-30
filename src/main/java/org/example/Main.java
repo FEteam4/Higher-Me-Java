@@ -1,10 +1,10 @@
 package org.example;
+import org.example.textrenderer.LineByLineTextRenderer;
+
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
-//TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
-// 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
 
     static Scanner sc = new Scanner(System.in);
@@ -28,7 +28,7 @@ public class Main {
                 case 3: // 3. 서비스 실행
                     runService();
                     // WordQuizGame1.runGame(sc); // 빈칸 뚫은 VER. WordQuizGame1 실행
-                    CrosswordGame1.run(); // Crossword VER. CrosswordGame1 실행
+//                    CrosswordGame1.run(); // Crossword VER. CrosswordGame1 실행
                     break;
                 case 4: // 4. 결과
                     showResults();
@@ -42,7 +42,9 @@ public class Main {
     }
 
     private static void runService() {
-        return;
+        User user = new User("test-user", "woman");
+        RecruitingProcess process = new RecruitingProcess(new LineByLineTextRenderer(), user, new CrosswordGame1());
+        process.run();
     }
 
     static void registerUser() {
