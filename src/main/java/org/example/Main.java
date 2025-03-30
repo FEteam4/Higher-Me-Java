@@ -74,7 +74,7 @@ public class Main {
                 case 1:
                     if (currentUser == null) {
                         System.out.println("먼저 사용자 등록을 진행하세요.");
-                        return; // 시작 CLI(메인 메뉴)로 복귀
+                        return;
                     }
                     ActivityService.runActivity(currentUser, sc);
                     break;
