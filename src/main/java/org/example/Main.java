@@ -1,15 +1,16 @@
 package org.example;
-import org.example.textrenderer.LineByLineTextRenderer;
 
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
+//TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
+// 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
 
     static Scanner sc = new Scanner(System.in);
-
     static final String USER_FILE_PATH = "C:\\Users\\kopo\\Desktop\\HigherMe";
+    static User currentUser = null; // 현재 등록된 사용자
 
     public static void main(String[] args) {
 
@@ -28,10 +29,10 @@ public class Main {
                 case 3: // 3. 서비스 실행
                     runService();
                     // WordQuizGame1.runGame(sc); // 빈칸 뚫은 VER. WordQuizGame1 실행
-//                    CrosswordGame1.run(); // Crossword VER. CrosswordGame1 실행
+                    //CrosswordGame1.run(); // Crossword VER. CrosswordGame1 실행
                     break;
                 case 4: // 4. 결과
-                    showResults();
+                    //showResults();
                     break;
                 case 5: // 5. 종료
                     return;
@@ -41,10 +42,8 @@ public class Main {
         }
     }
 
-    private static void runService() {
-        User user = new User("test-user", "woman");
-        RecruitingProcess process = new RecruitingProcess(new LineByLineTextRenderer(), user, new CrosswordGame1());
-        process.run();
+    static void showManual() {
+        System.out.println("이 게임은 활동을 통해 스탯을 키우고 채용 전형을 통과하여 최종 합격을 목표로 합니다.");
     }
 
     static void registerUser() {
@@ -53,23 +52,43 @@ public class Main {
         String name = sc.nextLine();
         System.out.print("성별 입력: ");
         String gender = sc.nextLine();
-        User currentUser = new User(name, gender);
+        currentUser = new User(name, gender);
         UserFileManager.appendUser(currentUser);
         System.out.println("등록 완료!");
     }
 
-    static void showManual() {
-        System.out.println("이 게임은 활동을 통해 스탯을 키우고 채용 전형을 통과하여 최종 합격을 목표로 합니다.");
-    }
-
-    public static void showResults() {
-        int randomNo = ThreadLocalRandom.current().nextInt(1, 6); // 선지 랜덤 선택
-
-        // certification 부분은 사용자가 선택한(입력받은) 활동의 값을 받아와야 함
-        List<ActivityOption> certification = ActivityLoader.getOptionsByNo(randomNo, "certification");
-
-        for (ActivityOption option : certification) {
-            System.out.println(option.option);
+    static void runService() {
+        while (true) {
+            System.out.println("\n[1. 활동] [2. 채용] [3. 사용자 정보(스탯 확인 가능)] [4. 뒤로가기]");
+            System.out.print("메뉴 선택: ");
+            int serviceChoice = Integer.parseInt(sc.nextLine());
+            switch (serviceChoice) {
+                case 1:
+                    if (currentUser == null) {
+                        System.out.println("먼저 사용자 등록을 진행하세요.");
+                        return; // 시작 CLI(메인 메뉴)로 복귀
+                    }
+                    ActivityService.runActivity(currentUser, sc);
+                    break;
+                case 2:
+                    // runRecruitment();
+                    break;
+                case 3:
+                    currentUser.showStats();
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("잘못된 입력입니다.");
+            }
         }
     }
+
+//    public static void showResults() {
+//        int randomNo = ThreadLocalRandom.current().nextInt(1, 6); // 선지 랜덤 선택
+//        List<ActivityOption> certification = ActivityLoader.getOptionsByNo(randomNo, "certification");
+//        for (ActivityOption option : certification) {
+//            System.out.println(option.option);
+//        }
+//    }
 }
