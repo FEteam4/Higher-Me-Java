@@ -29,7 +29,7 @@ public class CrosswordGame1 {
     static boolean[][] isWhite = new boolean[ROWS][COLS];
     static List<WordEntry> words = new ArrayList<>();
 
-    public static void run() {
+    public static boolean run() {
         Scanner sc = new Scanner(System.in);
         initGrid();
         initWords();
@@ -49,12 +49,13 @@ public class CrosswordGame1 {
                 System.out.println("❌ 오답입니다. 정답을 공개합니다!");
                 for (WordEntry word : words) fillWord(word);
                 printBoard();
-                return;
+                return false;
             }
         }
 
         System.out.println("\n🎉 퍼즐 완성! 축하합니다!");
         printBoard();
+        return true;
     }
 
     static void initGrid() {
