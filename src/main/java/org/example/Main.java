@@ -26,7 +26,7 @@ public class Main {
                     registerUser();
                     break;
                 case 3: // 3. 서비스 실행
-//                    runService();
+                    runService();
                     // WordQuizGame1.runGame(sc); // 빈칸 뚫은 VER. WordQuizGame1 실행
                     CrosswordGame1.run(); // Crossword VER. CrosswordGame1 실행
                     break;
@@ -39,6 +39,10 @@ public class Main {
                     System.out.println("잘못된 입력입니다.");
             }
         }
+    }
+
+    private static void runService() {
+        return;
     }
 
     static void registerUser() {
