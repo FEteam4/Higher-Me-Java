@@ -1,24 +1,15 @@
-package org.example.textrenderer;
+package org.example.io;
 
-import java.util.Scanner;
-
-public class LineByLineTextRenderer implements TextRenderer {
-
-    private final Scanner scanner = new Scanner(System.in);
+public class LineByLineTextWriter implements TextWriter {
 
     @Override
-    public void render(String text) {
+    public void write(String text) {
         String[] lines = text.split("\n");
         for (String line : lines) {
             System.out.print(line);
-            waitForEnter();
+            TextReader.readLine();
             clearLineFallback(line);
         }
-    }
-
-    private void waitForEnter() {
-//        System.out.print("  ← Enter를 눌러 계속...");
-        scanner.nextLine(); // 사용자 입력 대기
     }
 
     private void clearLineFallback(String line) {

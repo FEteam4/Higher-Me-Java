@@ -1,13 +1,13 @@
-package org.example.textrenderer;
+package org.example.io;
 
 import java.util.Scanner;
 
-public class TypingTextRenderer implements TextRenderer {
+public class TypingTextWriter implements TextWriter {
 
     private final Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void render(String text) {
+    public void write(String text) {
         String[] lines = text.split("\n");
         for (String line : lines) {
             typeLine(line);
