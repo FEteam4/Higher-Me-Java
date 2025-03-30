@@ -1,8 +1,9 @@
 package org.example;
 
-import java.util.List;
+import org.example.io.LineByLineTextWriter;
+import org.example.io.TextReader;
+
 import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
 
 //TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
 // 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
@@ -17,7 +18,7 @@ public class Main {
         while (true) {
             System.out.println("\n=== 시작 CLI ===");
             System.out.println("[📋 1️⃣. 메뉴얼] [🔐 2️⃣. 사용자 등록] [💼 3️⃣. 서비스 실행] [🥇 4️⃣. 결과] [🛑 5️⃣. 종료]");
-            String input = sc.nextLine();
+            String input = TextReader.readLine();
             int choice = Integer.parseInt(input);
             switch (choice) {
                 case 1: // 1. 메뉴얼
@@ -35,6 +36,7 @@ public class Main {
                     //showResults();
                     break;
                 case 5: // 5. 종료
+                    TextReader.close();
                     return;
                 default:
                     System.out.println("잘못된 입력입니다.");
@@ -47,21 +49,27 @@ public class Main {
     }
 
     static void registerUser() {
-        sc.nextLine(); // flush
+        TextReader.readLine(); // flush
         System.out.print("이름 입력: ");
-        String name = sc.nextLine();
+        String name = TextReader.readLine();
         System.out.print("성별 입력: ");
-        String gender = sc.nextLine();
+        String gender = TextReader.readLine();
         currentUser = new User(name, gender);
         UserFileManager.appendUser(currentUser);
         System.out.println("등록 완료!");
+    }
+
+    static int runProcess() {
+        User candidate = new User("test-user", "woman");
+        RecruitingProcess process = new RecruitingProcess(new LineByLineTextWriter(), candidate, new CrosswordGame1());
+        return process.run();
     }
 
     static void runService() {
         while (true) {
             System.out.println("\n[1. 활동] [2. 채용] [3. 사용자 정보(스탯 확인 가능)] [4. 뒤로가기]");
             System.out.print("메뉴 선택: ");
-            int serviceChoice = Integer.parseInt(sc.nextLine());
+            int serviceChoice = Integer.parseInt(TextReader.readLine());
             switch (serviceChoice) {
                 case 1:
                     if (currentUser == null) {
@@ -71,7 +79,7 @@ public class Main {
                     ActivityService.runActivity(currentUser, sc);
                     break;
                 case 2:
-                    // runRecruitment();
+                    if (runProcess() == 0) {return;}
                     break;
                 case 3:
                     currentUser.showStats();
