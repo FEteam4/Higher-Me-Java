@@ -87,7 +87,7 @@ public class ActivityService {
 
         // 난수를 발생시켜 선택된 옵션의 prob와 비교
         double rand = ThreadLocalRandom.current().nextDouble();
-        if (rand > selected.prob) {
+        if (rand <= selected.prob) {
             // 성공 시 각 스탯 업데이트
             currentUser.updateStat("개발능력", selected.sw);
             currentUser.updateStat("코테실력", selected.ps);
