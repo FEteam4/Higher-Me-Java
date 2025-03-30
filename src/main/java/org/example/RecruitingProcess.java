@@ -15,7 +15,7 @@ public class RecruitingProcess {
     private final TextWriter textWriter;
     private final User candidate;
     private final CrosswordGame1 crosswordGame; // 서류 게임
-    // todo: 블록 코테 게임 필드 추가
+    private final CodingTest codingTest;
 
     // todo: 문제 바꾸기
     static {
@@ -35,78 +35,88 @@ public class RecruitingProcess {
         questions2.add(new Question("팀 프로젝트에서 동료가 실수를 했을 때, 나는?", List.of("문제를 해결하고 나중에 따로 피드백한다.", "즉시 함께 해결책을 찾는다.", "직접 해결하기보다 팀장과 논의한다.", "팀의 흐름에 따라 유연하게 대응한다."), 0));
     }
 
-    public RecruitingProcess(TextWriter textWriter, User candidate, CrosswordGame1 crosswordGame) {
+    public RecruitingProcess(TextWriter textWriter, User candidate, CrosswordGame1 crosswordGame, CodingTest codingTest) {
         this.textWriter = textWriter;
         this.candidate = candidate;
         this.crosswordGame = crosswordGame;
+        this.codingTest = codingTest;
     }
 
     public int run() {
-        textWriter.write("서류 → 필기 → 실무면접 → 임원면접 순서로 이어집니다.");
+        textWriter.write(Story.INTRO.get());
         writeResume();
         if (candidate.isFailed(Map.of("외국어", 50, "개발능력", 50))) {
-            textWriter.write("능력치가 부족하여 서류 전형에서 떨어졌습니다.");
-            candidate.addFailCount();
-            return readAfterFail();
+            return handleFail(Story.RESUME_FAIL.get());
         }
-//         todo : 코테 게임
-//          if (!candidate.isPassed(Map.of("코테실력", 60, "CS지식", 60)))
+        textWriter.write(Story.RESUME_PASS.get());
+        codeTest();
+        if (candidate.isFailed(Map.of("코테실력", 60, "CS지식", 60))) {
+            return handleFail(Story.TEST_FAIL.get());
+        }
+        textWriter.write(Story.TEST_PASS.get());
         interview1();
         if (candidate.isFailed(Map.of("PT능력", 70, "CS지식", 70))) {
-            System.out.println("능력치가 부족하여 실무 면접 전형에서 떨어졌습니다.");
-            candidate.addFailCount();
-            return readAfterFail();
+            return handleFail(Story.INTERVIEW1_FAIL.get());
         }
+        textWriter.write(Story.INTERVIEW1_PASS.get());
         interview2();
         if (candidate.isFailed(Map.of("개발능력", 80, "코테실력", 80, "CS지식", 80, "PT능력", 80, "외국어", 80))) {
-            System.out.println("능력치가 부족하여 실무 면접 전형에서 떨어졌습니다.");
-            candidate.addFailCount();
-            return readAfterFail();
+            return handleFail(Story.INTERVIEW2_FAIL.get());
         }
+        textWriter.write(Story.INTERVIEW2_PASS.get());
         candidate.setSuccess(true);
-        textWriter.write("최종 합격하셨습니다. 축하드립니다.");
-        textWriter.write("처음으로 돌아갑니다.");
         return 0;
     }
 
-    private int readAfterFail() {
+    private int handleFail(String text) {
+        textWriter.write(text);
+        candidate.addFailCount();
         System.out.println("[1. 로또 사러가기 (처음으로)] [2. 서류부터 다시 쓰기]");
         return readValidAnswer(2);
     }
 
     private void writeResume() {
-        textWriter.write("서류 전형을 시작합니다.");
+        textWriter.write(Story.RESUME_START.get());
         if (crosswordGame.run()) {
             changeStats(Map.of("외국어", 5, "개발능력", 5));
         }
+        textWriter.write(Story.RESUME_AFTER_GAME.get());
+    }
+
+    private void codeTest() {
+        textWriter.write(Story.TEST_START.get());
+        if (codingTest.run()) {
+            changeStats(Map.of("코테실력", 5, "CS지식", 5));
+        }
+        textWriter.write(Story.TEST_AFTER_GAME.get());
     }
 
     private void interview1() {
-        textWriter.write("실무 면접을 시작합니다.");
-        int len = questions1.size();
-        Question question = questions1.get((int) (Math.random() * len % len));
+        textWriter.write(Story.INTERVIEW1_START.get());
+        Question question = getRandomQuestion(questions1);
         print(question);
         int pick = readValidAnswer(question.options.size());
         if (question.answer == pick) {
-            System.out.println("정답입니다!");
+            textWriter.write("정답입니다!");
             changeStats(Map.of("PT능력", 5, "개발능력", 5));
         } else {
-            System.out.println("오답입니다!");
+            textWriter.write("오답입니다!");
         }
+        textWriter.write(Story.INTERVIEW1_AFTER_GAME.get());
     }
 
     private void interview2() {
-        textWriter.write("임원 면접을 시작합니다.");
-        int len = questions2.size();
-        Question question = questions2.get((int) (Math.random() * len % len));
+        textWriter.write(Story.INTERVIEW2_START.get());
+        Question question = getRandomQuestion(questions2);
         print(question);
-        int pick = readValidAnswer(question.options.size());
-        if (question.answer == pick) {
-            System.out.println("정답입니다!");
-            changeStats(Map.of("CS지식", 5, "코테실력", 5, "건강", 5, "외국어", 5, "개발능력", 5, "PT능력", 5));
-        } else {
-            System.out.println("오답입니다!");
-        }
+        readValidAnswer(question.options.size());
+        changeStats(Map.of("CS지식", 5, "코테실력", 5, "건강", 5, "외국어", 5, "개발능력", 5, "PT능력", 5));
+        textWriter.write(Story.INTERVIEW2_AFTER_GAME.get());
+    }
+
+    private static Question getRandomQuestion(List<Question> questions1) {
+        int len = questions1.size();
+        return questions1.get((int) (Math.random() * len % len));
     }
 
     private int readValidAnswer(int optionCount) {

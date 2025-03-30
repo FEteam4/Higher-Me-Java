@@ -61,7 +61,12 @@ public class Main {
 
     static int runProcess() {
         User candidate = new User("test-user", "woman");
-        RecruitingProcess process = new RecruitingProcess(new LineByLineTextWriter(), candidate, new CrosswordGame1());
+        RecruitingProcess process = new RecruitingProcess(
+                new LineByLineTextWriter(),
+                candidate,
+                new CrosswordGame1(),
+                new CodingTest()
+        );
         return process.run();
     }
 

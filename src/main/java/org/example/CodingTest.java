@@ -43,11 +43,18 @@ public class CodingTest {
     };
 
     //이거로 시작
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
+//        initializeGame();
+//        System.out.println("코딩 테스트를 시작합니다.");
+//        System.out.println("방향키를 활용하여 알맞은 공간에 q를 눌러 정답을 맞추세요 !");
+//        gameLoop();
+//    }
+
+    public static boolean run() {
         initializeGame();
         System.out.println("코딩 테스트를 시작합니다.");
         System.out.println("방향키를 활용하여 알맞은 공간에 q를 눌러 정답을 맞추세요 !");
-        gameLoop();
+        return gameLoop();
     }
 
     // 게임 초기화
@@ -98,9 +105,10 @@ public class CodingTest {
     }
 
     // 게임 루프
-    static void gameLoop() {
+    static boolean gameLoop() {
         Scanner scanner = new Scanner(System.in);
         int gameRunning = 0;
+        boolean result = false;
         while (gameRunning < 2) {
             printBoard();
             System.out.print("블록 이동 (a: 왼쪽, d: 오른쪽, s: 아래, w: 위, q: 정답 확인하기): ");
@@ -115,11 +123,12 @@ public class CodingTest {
             } else if (command.equals("w")) {
                 moveBlock(0, -1);
             } else if (command.equals("q")) {
-                checkAnswer();
+                result = checkAnswer();
                 gameRunning++;
             }
         }
         System.out.println("게임 종료!");
+        return result;
     }
 
     // 블록 이동
@@ -134,7 +143,7 @@ public class CodingTest {
     }
 
     // 정답 확인 여기서 stats 변화랑 다음 페이지 연결 하시면 됩니다.
-    static void checkAnswer() {
+    static boolean checkAnswer() {
         boolean isCorrect = false;
         for (Blank blank : blanks) {
             if (currentX == blank.x && currentY == blank.y) {
@@ -155,6 +164,7 @@ public class CodingTest {
             System.out.println(RED + "오답!" + RESET);
             generateNewBlock();
         }
+        return isCorrect;
     }
 
     // 새 블록 생성
