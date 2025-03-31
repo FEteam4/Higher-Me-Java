@@ -115,7 +115,6 @@ public class Main {
                     currentUser.showStats();
                     break;
                 case 4:
-                    UserFileManager.writeUsers(users);
                     return;
                 default:
                     System.out.println("⚠️ 잘못된 입력입니다.");

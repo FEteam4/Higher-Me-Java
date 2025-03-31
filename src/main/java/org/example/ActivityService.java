@@ -22,6 +22,7 @@ public class ActivityService {
         }
         if (activityChoice >= 1 && activityChoice <= 6) {
             activity(activityChoice, currentUser, sc);
+            UserFileManager.writeUsers(Main.users);         // 사용자 스탯 수정 사항 파일에 반영
             activityCount++;
         } else {
             System.out.println("잘못된 입력입니다.");
