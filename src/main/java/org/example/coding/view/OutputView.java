@@ -1,8 +1,7 @@
-package org.example.codingTest.view;
+package org.example.coding.view;
 
-import org.example.codingTest.controller.GameController;
-import org.example.codingTest.domain.Block;
-import org.example.codingTest.domain.GameBoard;
+import org.example.coding.domain.Block;
+import org.example.coding.domain.GameBoard;
 
 public class OutputView {
     private static final String RED = "\u001B[31m";

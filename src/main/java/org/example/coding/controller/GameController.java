@@ -1,12 +1,10 @@
-package org.example.codingTest.controller;
-import org.example.codingTest.domain.BlockManager;
-import org.example.codingTest.domain.GameBoard;
-import org.example.codingTest.domain.Blank;
-import org.example.codingTest.domain.Block;
-import org.example.codingTest.view.InputView;
-import org.example.codingTest.view.OutputView;
-
-import java.io.IOException;
+package org.example.coding.controller;
+import org.example.coding.domain.BlockManager;
+import org.example.coding.domain.GameBoard;
+import org.example.coding.domain.Blank;
+import org.example.coding.domain.Block;
+import org.example.coding.view.InputView;
+import org.example.coding.view.OutputView;
 
 public class GameController {
     private GameBoard board;

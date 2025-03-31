@@ -1,4 +1,4 @@
-package org.example.codingTest.domain;
+package org.example.coding.domain;
 
 public class GameBoard {
     private char[][] board;

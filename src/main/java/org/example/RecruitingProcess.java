@@ -2,7 +2,7 @@ package org.example;
 
 import org.example.io.TextReader;
 import org.example.io.TextWriter;
-import org.example.codingTest.CodingTest;
+import org.example.coding.CodingTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package org.example.codingTest.view;
+package org.example.coding.view;
 
 import java.util.Scanner;
 

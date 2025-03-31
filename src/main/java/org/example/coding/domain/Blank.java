@@ -1,4 +1,4 @@
-package org.example.codingTest.domain;
+package org.example.coding.domain;
 
 public class Blank {
     private int x;
