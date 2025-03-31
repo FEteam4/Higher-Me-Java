@@ -76,7 +76,7 @@ public class Main {
 
         currentUser = new User(name, gender);
         UserFileManager.appendUser(currentUser);
-        System.out.println("🆗 등록 완료!");
+        System.out.println("🆗 등록 완료되었습니다!");
     }
 
 
