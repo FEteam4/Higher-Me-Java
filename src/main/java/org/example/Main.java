@@ -10,11 +10,13 @@ import java.util.List;
 // 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
 
+    static List<User> users;
     static Scanner sc = new Scanner(System.in);
-    static final String USER_FILE_PATH = "C:\\Users\\kopo\\Desktop\\HigherMe";
     static User currentUser = null; // 현재 등록된 사용자
 
     public static void main(String[] args) {
+        // 프로그램 시작시 파일로부터 유저 리스트 초기화
+        users = UserFileManager.readUsers();
 
         while (true) {
             System.out.println("\n=== ☁️ Higher Me! ☁️===");
@@ -61,30 +63,29 @@ public class Main {
         System.out.print("이름 입력: ");
         String name = TextReader.readLine();
 
-        // 이름 중복 검사
-        List<User> existingUsers = UserFileManager.readUsers();
-        boolean nameExists = existingUsers.stream()
-                .anyMatch(user -> user.getName().equals(name));
+        // 동일한 이름을 가진 기존 유저를 저장. 새로운 유저면 null로 초기화
+        currentUser = users.stream().filter(u -> name.equals(u.getName())).findAny().orElse(null);
 
-        if (nameExists) {
-            System.out.println("❗ 이미 등록된 이름입니다. 다른 이름을 사용해주세요.");
+        //
+        if (currentUser != null) {
+            System.out.println("❗ 이미 등록된 이름입니다. 기존 유저를 불러옵니다.");
             return;
         }
 
-        System.out.print("성별 입력: ");
+        System.out.print("성별 입력(m 또는 f로 입력하세요): ");
         String gender = TextReader.readLine();
 
         currentUser = new User(name, gender);
+        users.add(currentUser);
         UserFileManager.appendUser(currentUser);
         System.out.println("🆗 등록 완료되었습니다!");
     }
 
 
     static int runProcess() {
-        if (currentUser == null) {
-            System.out.println("⚠️ 먼저 사용자 등록을 진행하세요.");
-            return -1;
-        }
+       if (currentUserIsNull()) {
+           return -1;
+       }
         RecruitingProcess process = new RecruitingProcess(
                 new LineByLineTextWriter(),
                 currentUser,
@@ -102,16 +103,14 @@ public class Main {
             int serviceChoice = Integer.parseInt(TextReader.readLine());
             switch (serviceChoice) {
                 case 1:
-                    if (currentUser == null) {
-                        System.out.println("⚠️ 먼저 사용자 등록을 진행하세요.");
-                        return;
-                    }
+                    if (currentUserIsNull()) return;
                     ActivityService.runActivity(currentUser, sc);
                     break;
                 case 2:
                     if (runProcess() == 0) {return;}
                     break;
                 case 3:
+                    if (currentUserIsNull()) return;
                     currentUser.showStats();
                     break;
                 case 4:
@@ -120,6 +119,14 @@ public class Main {
                     System.out.println("⚠️ 잘못된 입력입니다.");
             }
         }
+    }
+
+    private static boolean currentUserIsNull() {
+        if (currentUser == null) {
+            System.out.println("⚠️ 먼저 사용자 등록을 진행하세요.");
+            return true;
+        }
+        return false;
     }
 
 //    public static void showResults() {
