@@ -53,10 +53,12 @@ public class User {
         stats.put("건강", 100);
     }
 
-    // ✅ 문자열 키 기반으로 스탯 업데이트
+    // 스탯 업데이트
     public void updateStat(String key, int value) {
         if (stats.containsKey(key)) {
-            stats.put(key, stats.get(key) + value);
+            int current = stats.get(key);
+            int updated = Math.max(0, Math.min(100, current + value)); // 0~100 사이로 제한
+            stats.put(key, updated);
         } else {
             System.out.println("존재하지 않는 스탯 키입니다: " + key);
         }
