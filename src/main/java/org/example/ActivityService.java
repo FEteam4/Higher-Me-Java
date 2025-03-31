@@ -20,6 +20,7 @@ public class ActivityService {
         if (activityChoice == 7) {
             return;
         }
+
         if (activityChoice >= 1 && activityChoice <= 6) {
             activity(activityChoice, currentUser, sc);
             activityCount++;

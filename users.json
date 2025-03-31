@@ -26,4 +26,60 @@
   "failCount" : 0,
   "success" : false,
   "totalStats" : 350
+}, {
+  "name" : "안녕",
+  "gender" : "남자",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "김",
+  "gender" : "남",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "5",
+  "gender" : "5",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "으아아아아",
+  "gender" : "남",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
 } ]
