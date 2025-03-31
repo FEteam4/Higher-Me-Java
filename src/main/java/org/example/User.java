@@ -41,7 +41,7 @@ public class User {
 
     public User(String name, String gender) {
         this.name = name;
-        this.gender = gender;
+        this.gender = gender.toLowerCase();
         this.stats = new HashMap<>();
 
         // 명시적으로 키 설정
