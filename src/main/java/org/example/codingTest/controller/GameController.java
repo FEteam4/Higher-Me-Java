@@ -29,6 +29,7 @@ public class GameController {
         return gameLoop();
     }
 
+
     private void initializeGame() {
         board.clearBoard();
         board.displayMultiplicationTable();

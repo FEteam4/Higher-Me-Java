@@ -34,6 +34,7 @@ public class OutputView {
     }
 
     public void printBoard(GameBoard board, Block currentBlock) {
+
         String border = CYAN + "+" + "-".repeat(50 + 2) + "+" + RESET;
         System.out.println(border);
 

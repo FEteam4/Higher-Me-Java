@@ -14,6 +14,7 @@ public class Block {
         this.startY = y;
         this.value = value;
     }
+
     public int getX() {
         return x;
     }

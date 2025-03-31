@@ -15,6 +15,7 @@ public class Blank {
         return x;
     }
 
+
     public int getY() {
         return y;
     }

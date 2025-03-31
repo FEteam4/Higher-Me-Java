@@ -27,6 +27,7 @@ public class BlockManager {
         }
     }
 
+
     public Block getCurrentBlock() {
         return currentBlock;
     }
