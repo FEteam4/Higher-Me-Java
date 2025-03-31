@@ -65,7 +65,11 @@ public class ActivityService {
 
         List<ActivityOption> options = ActivityLoader.getOptionsByNo(randomNo, fileName);
 
-        System.out.println("\n[1. " + options.get(0).option + "] vs [2. " + options.get(1).option + "]");
+        int prob1 = (int)(options.get(0).prob * 100);
+        int prob2 = (int)(options.get(1).prob * 100);
+
+        System.out.println("\n[1. " + options.get(0).option + "(성공확률: " + prob1 + "%)]"
+                + " vs [2. " + options.get(1).option + "(성공확률: " + prob2 + "%)]");
         System.out.print("선택 (1 또는 2): ");
         int choice = Integer.parseInt(sc.nextLine());
         ActivityOption selected;
