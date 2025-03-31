@@ -35,7 +35,7 @@ public class CrosswordGame1 {
         initWords();
         fillColorMap();
 
-        System.out.println("🧩 자바 크로스워드 퍼즐 시작!");
+        System.out.println("🧩 크로스워드 퍼즐 게임을 시작합니다!");
 
         for (WordEntry w : words) {
             printBoard();
@@ -53,7 +53,7 @@ public class CrosswordGame1 {
             }
         }
 
-        System.out.println("\n🎉 퍼즐 완성! 축하합니다!");
+        System.out.println("\n🎉 퍼즐을 완성했습니다! 축하합니다!");
         printBoard();
         return true;
     }
@@ -67,11 +67,11 @@ public class CrosswordGame1 {
     }
 
     static void initWords() {
-        words.add(new WordEntry(1, "OBJECT", "D", 0, 4, "프로그래밍에서 인스턴스를 의미하는 용어"));
+        words.add(new WordEntry(1, "OBJECT", "D", 0, 4, "프로그래밍에서 클래스로부터 생성된 실제 인스턴스"));
         words.add(new WordEntry(2, "CLASS", "D", 1, 1, "객체를 생성하기 위한 설계도"));
-        words.add(new WordEntry(3, "ARRAY", "A", 7, 4, "같은 타입의 데이터를 나열한 자료구조"));
-        words.add(new WordEntry(4, "BINARY", "D", 2, 8, "0과 1로 이루어진 수 체계"));
-        words.add(new WordEntry(5, "CACHE", "A", 3, 0, "데이터를 임시로 저장하는 고속 저장소"));
+        words.add(new WordEntry(3, "ARRAY", "A", 7, 4, "동일한 타입의 데이터를 순차적으로 저장하는 자료구조"));
+        words.add(new WordEntry(4, "BINARY", "D", 2, 8, "컴퓨터가 이해하는 2진법 숫자 체계(0과 1)"));
+        words.add(new WordEntry(5, "CACHE", "A", 3, 0, "데이터를 임시로 저장하는 고속 메모리 공간"));
         words.add(new WordEntry(6, "THREAD", "A", 5, 4, "하나의 프로세스 내에서 실행되는 흐름 단위"));
 
         for (WordEntry w : words) {
