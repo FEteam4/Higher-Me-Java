@@ -33,7 +33,7 @@ public class Main {
                     // WordQuizGame1.runGame(sc); // 빈칸 뚫은 VER. WordQuizGame1 실행
                     //CrosswordGame1.run(); // Crossword VER. CrosswordGame1 실행
                     break;
-                case 4: // 4. 결과
+                case 4: // 4. 랭킹 결과
                     //showResults();
                     break;
                 case 5: // 5. 종료
@@ -81,10 +81,13 @@ public class Main {
 
 
     static int runProcess() {
-        User candidate = new User("test-user", "woman");
+        if (currentUser == null) {
+            System.out.println("⚠️ 먼저 사용자 등록을 진행하세요.");
+            return -1;
+        }
         RecruitingProcess process = new RecruitingProcess(
                 new LineByLineTextWriter(),
-                candidate,
+                currentUser,
                 new CrosswordGame1(),
                 new CodingTest()
         );
@@ -94,7 +97,7 @@ public class Main {
     static void runService() {
         while (true) {
             System.out.println("\n[📝 1. 활동] [💼 2. 채용] [📊 3. 사용자 정보(스탯 확인 가능)] [🔙 4. 뒤로가기]");
-            System.out.println("📋 메뉴를 선택하세요:");
+            System.out.print("📋 메뉴를 선택하세요: ");
 
             int serviceChoice = Integer.parseInt(TextReader.readLine());
             switch (serviceChoice) {

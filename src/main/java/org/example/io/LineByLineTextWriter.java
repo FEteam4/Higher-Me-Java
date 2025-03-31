@@ -7,6 +7,7 @@ public class LineByLineTextWriter implements TextWriter {
         String[] lines = text.split("\n");
         for (String line : lines) {
             System.out.print(line);
+            System.out.print(" (Enter)");
             TextReader.readLine();
             clearLineFallback(line);
         }
