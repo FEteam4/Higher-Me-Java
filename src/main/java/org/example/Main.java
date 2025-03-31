@@ -93,7 +93,9 @@ public class Main {
                 new CrosswordGame1(),
                 new CodingTest()
         );
-        return process.run();
+        int result = process.run();
+        UserFileManager.writeUsers(users);
+        return result;
     }
 
     static void runService() {
