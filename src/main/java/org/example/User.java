@@ -53,7 +53,7 @@ public class User {
         stats.put("건강", 100);
     }
 
-    // 스탯 업데이트
+    // ✅ 문자열 키 기반으로 스탯 업데이트
     public void updateStat(String key, int value) {
         if (stats.containsKey(key)) {
             int current = stats.get(key);
