@@ -28,6 +28,16 @@ public class UserFileManager {
         }
     }
 
+    // ✅ 전체 사용자 업데이트
+    public static void writeUsers(List<User> users) {
+        try {
+            ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter();
+            writer.writeValue(file, users);
+        } catch (IOException e) {
+            System.err.println("파일 저장 실패: " + e.getMessage());
+        }
+    }
+
     // ✅ 사용자 읽기
     public static List<User> readUsers() {
         List<User> users = new ArrayList<>();
@@ -45,4 +55,5 @@ public class UserFileManager {
 
         return users;
     }
+
 }

@@ -2,6 +2,20 @@
   "name" : "rla",
   "gender" : "rla",
   "stats" : {
+    "코테실력" : 70,
+    "외국어" : 54,
+    "건강" : 100,
+    "개발능력" : 40,
+    "CS지식" : 55,
+    "PT능력" : 54
+  },
+  "failCount" : 1,
+  "success" : false,
+  "totalStats" : 373
+}, {
+  "name" : "ska",
+  "gender" : "ska",
+  "stats" : {
     "코테실력" : 50,
     "외국어" : 50,
     "건강" : 100,
@@ -13,8 +27,64 @@
   "success" : false,
   "totalStats" : 350
 }, {
-  "name" : "rla",
-  "gender" : "rlrlrlr",
+  "name" : "1",
+  "gender" : "ska",
+  "stats" : {
+    "코테실력" : 100,
+    "외국어" : 100,
+    "건강" : 100,
+    "개발능력" : 100,
+    "CS지식" : 100,
+    "PT능력" : 100
+  },
+  "failCount" : 0,
+  "success" : true,
+  "totalStats" : 600
+}, {
+  "name" : "2",
+  "gender" : "ska",
+  "stats" : {
+    "코테실력" : 100,
+    "외국어" : 100,
+    "건강" : 100,
+    "개발능력" : 100,
+    "CS지식" : 100,
+    "PT능력" : 100
+  },
+  "failCount" : 2,
+  "success" : true,
+  "totalStats" : 600
+}, {
+  "name" : "3",
+  "gender" : "ska",
+  "stats" : {
+    "코테실력" : 100,
+    "외국어" : 100,
+    "건강" : 100,
+    "개발능력" : 100,
+    "CS지식" : 100,
+    "PT능력" : 100
+  },
+  "failCount" : 1,
+  "success" : true,
+  "totalStats" : 600
+}, {
+  "name" : "4",
+  "gender" : "ska",
+  "stats" : {
+    "코테실력" : 100,
+    "외국어" : 100,
+    "건강" : 100,
+    "개발능력" : 100,
+    "CS지식" : 100,
+    "PT능력" : 90
+  },
+  "failCount" : 2,
+  "success" : true,
+  "totalStats" : 590
+}, {
+  "name" : "김",
+  "gender" : "m",
   "stats" : {
     "코테실력" : 50,
     "외국어" : 50,
