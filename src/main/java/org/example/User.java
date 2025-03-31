@@ -74,6 +74,24 @@ public class User {
         System.out.println("합격 여부: " + (success ? "합격" : "미합격"));
     }
 
+    public boolean isFailed(Map<String, Integer> cutoff) {
+        for (Map.Entry<String, Integer> entry : cutoff.entrySet()) {
+            // cutoff를 넘지 못하면
+            if (stats.get(entry.getKey()) < entry.getValue()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void addFailCount() {
+        failCount++;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
 //    public void showSummary() {
 //        System.out.println(name + " | 실패: " + failCount + "회 | 스탯 합계: " + getTotalStats());
 //    }
