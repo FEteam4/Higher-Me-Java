@@ -3,6 +3,7 @@ package org.example;
 import org.example.io.LineByLineTextWriter;
 import org.example.io.TextReader;
 
+import java.util.Comparator;
 import java.util.Scanner;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class Main {
                     //CrosswordGame1.run(); // Crossword VER. CrosswordGame1 실행
                     break;
                 case 4: // 4. 랭킹 결과
-                    //showResults();
+                    showUserRanking(users);
                     break;
                 case 5: // 5. 종료
                     TextReader.close();
@@ -128,6 +129,38 @@ public class Main {
         }
         return false;
     }
+
+    // 랭킹 함수
+    public static void showUserRanking(List<User> users) {
+        List<User> successfulUsers = users.stream()
+                .filter(User::isSuccess)
+                .sorted(Comparator
+                        .comparingInt(User::getTotalStats).reversed()
+                        .thenComparingInt(User::getFailCount)) // 실패 횟수가 적을수록 우선
+                .toList();
+
+        if (successfulUsers.isEmpty()) {
+            System.out.println("✅ 아직 합격한 유저가 없습니다.");
+            return;
+        }
+
+        System.out.println("🎖️ [합격 유저 순위]");
+        int rank = 1;
+        for (User user : successfulUsers) {
+            String medal = switch (rank) {
+                case 1 -> "🥇";
+                case 2 -> "🥈";
+                case 3 -> "🥉";
+                default -> rank + "위";
+            };
+
+            System.out.println(medal + " - " + user.getName() +
+                    " | 총합 스탯: " + user.getTotalStats() +
+                    " | 실패 횟수: " + user.getFailCount());
+            rank++;
+        }
+    }
+
 
 //    public static void showResults() {
 //        int randomNo = ThreadLocalRandom.current().nextInt(1, 6); // 선지 랜덤 선택
