@@ -28,8 +28,11 @@ public class TypingTextWriter implements TextWriter {
     }
 
     private void waitForEnter() {
-        System.out.print(" ← ⏎ Enter를 눌러 계속...");
-        scanner.nextLine(); // 사용자 입력 대기
+        System.out.print(" ⏎ Enter");
+        while (scanner.hasNextLine()) {
+            scanner.nextLine();
+            break; // 첫 줄만 읽고 버리기
+        }
         clearLine();
     }
 
