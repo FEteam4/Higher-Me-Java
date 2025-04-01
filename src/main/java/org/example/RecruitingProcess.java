@@ -9,11 +9,11 @@ public class RecruitingProcess {
 
     private final TextWriter textWriter;
     private final User candidate;
-    private final CrosswordGame1 crosswordGame; // 서류 게임
+    private final CrosswordGame crosswordGame; // 서류 게임
     private final CodingTest codingTest;
     private final QuestionRepository questionRepository;
 
-    public RecruitingProcess(TextWriter textWriter, User candidate, CrosswordGame1 crosswordGame, CodingTest codingTest, QuestionRepository questionRepository) {
+    public RecruitingProcess(TextWriter textWriter, User candidate, CrosswordGame crosswordGame, CodingTest codingTest, QuestionRepository questionRepository) {
         this.textWriter = textWriter;
         this.candidate = candidate;
         this.crosswordGame = crosswordGame;

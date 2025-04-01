@@ -118,7 +118,7 @@ public class Main {
         RecruitingProcess process = new RecruitingProcess(
                 new TypingTextWriter(),
                 currentUser,
-                new CrosswordGame1(),
+                new CrosswordGame(),
                 new CodingTest(),
                 new QuestionRepository()
         );
