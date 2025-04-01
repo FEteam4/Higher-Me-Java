@@ -3,15 +3,15 @@
   "gender" : "rla",
   "stats" : {
     "코테실력" : 100,
-    "외국어" : 75,
+    "외국어" : 90,
     "건강" : 100,
     "개발능력" : 100,
     "CS지식" : 100,
-    "PT능력" : 86
+    "PT능력" : 100
   },
   "failCount" : 5,
-  "success" : false,
-  "totalStats" : 561
+  "success" : true,
+  "totalStats" : 590
 }, {
   "name" : "ska",
   "gender" : "ska",
@@ -86,16 +86,16 @@
   "name" : "김",
   "gender" : "m",
   "stats" : {
-    "코테실력" : 64,
+    "코테실력" : 69,
     "외국어" : 54,
     "건강" : 100,
-    "개발능력" : 65,
-    "CS지식" : 75,
-    "PT능력" : 59
+    "개발능력" : 70,
+    "CS지식" : 80,
+    "PT능력" : 64
   },
-  "failCount" : 2,
+  "failCount" : 3,
   "success" : false,
-  "totalStats" : 417
+  "totalStats" : 437
 }, {
   "name" : "22",
   "gender" : "33",
@@ -238,6 +238,118 @@
   "totalStats" : 360
 }, {
   "name" : "123",
+  "gender" : "f",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "ela",
+  "gender" : "3",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "lra",
+  "gender" : "m",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "변",
+  "gender" : "m",
+  "stats" : {
+    "코테실력" : 85,
+    "외국어" : 62,
+    "건강" : 70,
+    "개발능력" : 62,
+    "CS지식" : 85,
+    "PT능력" : 62
+  },
+  "failCount" : 1,
+  "success" : false,
+  "totalStats" : 426
+}, {
+  "name" : "pp",
+  "gender" : "f",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "byun",
+  "gender" : "f",
+  "stats" : {
+    "코테실력" : 59,
+    "외국어" : 70,
+    "건강" : 85,
+    "개발능력" : 54,
+    "CS지식" : 65,
+    "PT능력" : 54
+  },
+  "failCount" : 1,
+  "success" : false,
+  "totalStats" : 387
+}, {
+  "name" : "bae",
+  "gender" : "m",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "김김김",
+  "gender" : "m",
+  "stats" : {
+    "코테실력" : 55,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 55,
+    "PT능력" : 50
+  },
+  "failCount" : 1,
+  "success" : false,
+  "totalStats" : 360
+}, {
+  "name" : "헤헤",
   "gender" : "f",
   "stats" : {
     "코테실력" : 50,

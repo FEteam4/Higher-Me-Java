@@ -25,13 +25,13 @@ public class TypingTextWriter implements TextWriter {
                 Thread.currentThread().interrupt();
             }
         }
-        System.out.flush(); // 🔑 모든 출력 강제 완료
+        System.out.flush();
     }
 
     private void waitForEnter() {
-        System.out.println(" ⏎ Enter");
+        System.out.print(" ⏎ Enter를 눌러 계속..");
         //메인 스레드를 잠시 중단하고 싶어
-//        scanner.nextLine();
+        scanner.nextLine();
 //        clearLine();
     }
 
