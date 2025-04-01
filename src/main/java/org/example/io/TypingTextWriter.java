@@ -29,9 +29,8 @@ public class TypingTextWriter implements TextWriter {
 
     private void waitForEnter() {
         System.out.print(" ⏎ Enter");
-        while (scanner.hasNextLine()) {
+        if (scanner.hasNextLine()) {
             scanner.nextLine();
-            break; // 첫 줄만 읽고 버리기
         }
         clearLine();
     }
