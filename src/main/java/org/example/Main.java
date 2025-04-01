@@ -24,26 +24,31 @@ public class Main {
         while (true) {
             System.out.println("\n=== ☁️ Higher Me! ☁️===");
             System.out.println("[📋 1️⃣. 메뉴얼] [🔐 2️⃣. 사용자 등록] [💼 3️⃣. 서비스 실행] [🥇 4️⃣. 랭킹 결과] [🛑 5️⃣. 종료]");
-            String input = TextReader.readLine();
-            int choice = Integer.parseInt(input);
-            switch (choice) {
-                case 1: // 1. 메뉴얼
-                    showManual();
-                    break;
-                case 2: // 2. 사용자 등록
-                    registerUser();
-                    break;
-                case 3: // 3. 서비스 실행
-                    runService();
-                    break;
-                case 4: // 4. 랭킹 결과
-                    showUserRanking(users);
-                    break;
-                case 5: // 5. 종료
-                    TextReader.close();
-                    return;
-                default:
-                    System.out.println("⚠️ 잘못된 입력입니다.");
+            try {
+                String input = TextReader.readLine();
+                int choice = Integer.parseInt(input);
+                switch (choice) {
+                    case 1: // 1. 메뉴얼
+                        showManual();
+                        break;
+                    case 2: // 2. 사용자 등록
+                        registerUser();
+                        break;
+                    case 3: // 3. 서비스 실행
+                        runService();
+                        break;
+                    case 4: // 4. 랭킹 결과
+                        showUserRanking(users);
+                        break;
+                    case 5: // 5. 종료
+                        TextReader.close();
+                        return;
+                    default:
+                        System.out.println("⚠️ 잘못된 입력입니다.");
+                }
+            }
+            catch (NumberFormatException e) {
+                System.out.println("⚠️ 잘못된 입력입니다.");
             }
         }
     }
@@ -131,24 +136,30 @@ public class Main {
         while (true) {
             System.out.println("\n[📝 1. 활동] [💼 2. 채용] [📊 3. 사용자 정보(스탯 확인 가능)] [🔙 4. 뒤로가기]");
             System.out.print("📋 메뉴를 선택하세요: ");
-
-            int serviceChoice = Integer.parseInt(TextReader.readLine());
-            switch (serviceChoice) {
-                case 1:
-                    if (currentUserIsNull()) return;
-                    ActivityService.runActivity(currentUser, sc);
-                    break;
-                case 2:
-                    if (runProcess() == 0) {return;}
-                    break;
-                case 3:
-                    if (currentUserIsNull()) return;
-                    currentUser.showStats();
-                    break;
-                case 4:
-                    return;
-                default:
-                    System.out.println("⚠️ 잘못된 입력입니다.");
+            try {
+                int serviceChoice = Integer.parseInt(TextReader.readLine());
+                switch (serviceChoice) {
+                    case 1:
+                        if (currentUserIsNull()) return;
+                        ActivityService.runActivity(currentUser, sc);
+                        break;
+                    case 2:
+                        if (runProcess() == 0) {
+                            return;
+                        }
+                        break;
+                    case 3:
+                        if (currentUserIsNull()) return;
+                        currentUser.showStats();
+                        break;
+                    case 4:
+                        return;
+                    default:
+                        System.out.println("⚠️ 잘못된 입력입니다.");
+                }
+            }
+            catch (NumberFormatException e) {
+                System.out.println("⚠️ 잘못된 입력입니다.");
             }
         }
     }
