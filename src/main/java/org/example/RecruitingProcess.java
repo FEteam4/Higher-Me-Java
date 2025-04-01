@@ -50,7 +50,7 @@ public class RecruitingProcess {
     private int handleFail(String text) {
         textWriter.write(text);
         candidate.addFailCount();
-        System.out.println("[1. 로또 사러가기 (처음으로)] [2. 서류부터 다시 쓰기]");
+        System.out.println("[1. 🎟️ 로또 사러가기 (처음으로)] [2. ✍️ 서류부터 다시 쓰기]");
         return readValidAnswer(2);
     }
 
@@ -76,10 +76,10 @@ public class RecruitingProcess {
         print(question);
         int pick = readValidAnswer(question.options.size());
         if (question.answer == pick) {
-            textWriter.write("정답입니다!");
+            textWriter.write("✅ 정답입니다! 🎉👏💯");
             changeStats(Map.of("PT능력", 5, "개발능력", 5));
         } else {
-            textWriter.write("오답입니다!");
+            textWriter.write("⚠️ 오답입니다!");
         }
         textWriter.write(Story.INTERVIEW1_AFTER_GAME.get());
     }
@@ -99,12 +99,12 @@ public class RecruitingProcess {
                 System.out.print(">> ");
                 int pick = Integer.parseInt(TextReader.readLine()) - 1;
                 if (pick < 0 || pick >= optionCount) {
-                    System.out.println("입력 값이 보기 범위를 벗어났습니다. 다시 시도하세요.");
+                    System.out.println("⚠️ 입력 값이 보기 범위를 벗어났습니다. 다시 시도하세요.");
                     continue;
                 }
                 return pick;
             } catch (NumberFormatException e) {
-                System.out.println("숫자를 입력해주세요.");
+                System.out.println("⚠️ 숫자를 입력해주세요.");
             }
         }
     }

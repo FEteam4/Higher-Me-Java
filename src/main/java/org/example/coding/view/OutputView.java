@@ -20,10 +20,6 @@ public class OutputView {
         System.out.println("🎮 방향키를 활용하여 알맞은 공간에 q를 눌러 정답을 맞추세요!");
     }
 
-    public void displayEndMessage() {
-        System.out.println("게임이 종료되었습니다. 🏁");
-    }
-
     public void displayCorrectAnswer() {
         System.out.println(GREEN + "🎉 정답입니다! 👏" + RESET);
     }
