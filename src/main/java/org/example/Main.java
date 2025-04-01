@@ -53,20 +53,6 @@ public class Main {
         }
     }
 
-//    static void showManual() {
-//
-//        System.out.println("🎯 Higher Me!");
-//        System.out.println("⏳ 채용 공고가 뜨기 10개월 전으로 시간을 되돌립니다..");
-//        System.out.println("⏪ 과거로 이동 중... 준비하세요!");
-//        System.out.println("🕰️ 당신의 여정은 지금부터 시작됩니다.");
-//        System.out.println("🏁 활동을 통해 스펙을 키우고 최종 합격까지 달려가 볼까요?🏃💨️");
-//        System.out.println("🚀 활동 종류: 코딩테스트, 자격증, 동아리, 인턴, 운동, 기타");
-//        System.out.println("📈 각 활동은 능력치를 높이거나 낮출 수 있습니다.");
-//        System.out.println("⚠️ 활동 결과는 랜덤 요소가 포함되어 있으니 주의하세요!");
-//        System.out.println("📝 전형 단계: 서류전형 → 필기전형 → 실무 면접 전형 → 임원 면접 전형");
-//        System.out.println("🍀 앞으로의 행운을 빕니다!");
-//    }
-
     static void typeEffect(String message, int delay) {
         for (char c : message.toCharArray()) {
             System.out.print(c);
@@ -92,7 +78,6 @@ public class Main {
         typeEffect("🍀 앞으로의 행운을 빕니다!", 50);
     }
 
-
     static void registerUser() {
         System.out.print("이름 입력: ");
         String name = TextReader.readLine();
@@ -100,21 +85,27 @@ public class Main {
         // 동일한 이름을 가진 기존 유저를 저장. 새로운 유저면 null로 초기화
         currentUser = users.stream().filter(u -> name.equals(u.getName())).findAny().orElse(null);
 
-        //
         if (currentUser != null) {
             System.out.println("❗ 이미 등록된 이름입니다. 기존 유저를 불러옵니다.");
             return;
         }
 
-        System.out.print("성별 입력(m 또는 f로 입력하세요): ");
-        String gender = TextReader.readLine();
+        String gender;
+        while (true) {
+            System.out.print("성별 입력(m 또는 f로 입력하세요): ");
+            gender = TextReader.readLine().trim().toLowerCase();
+            if (gender.equals("m") || gender.equals("f")) {
+                break;
+            } else {
+                System.out.println("❌ 잘못된 입력입니다. 'm' 또는 'f'로 입력해주세요.");
+            }
+        }
 
         currentUser = new User(name, gender);
         users.add(currentUser);
         UserFileManager.appendUser(currentUser);
         System.out.println("🆗 등록 완료되었습니다!");
     }
-
 
     static int runProcess() {
        if (currentUserIsNull()) {
@@ -202,13 +193,4 @@ public class Main {
             rank++;
         }
     }
-
-
-//    public static void showResults() {
-//        int randomNo = ThreadLocalRandom.current().nextInt(1, 6); // 선지 랜덤 선택
-//        List<ActivityOption> certification = ActivityLoader.getOptionsByNo(randomNo, "certification");
-//        for (ActivityOption option : certification) {
-//            System.out.println(option.option);
-//        }
-//    }
 }

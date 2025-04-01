@@ -9,11 +9,11 @@ public class ActivityService {
 
     public static void runActivity(User currentUser, Scanner sc) {
         if (activityCount >= 3) {
-            System.out.println("활동은 3번까지 진행할 수 있습니다. 채용에 도전하세요.");
+            System.out.println("❗ 활동은 3번까지 진행할 수 있습니다. 채용에 도전하세요.");
             return;
         }
 
-        System.out.println("\n🎯 6가지 활동 중 하나를 선택하세요! 🔥활동은 최대 3번까지 가능합니다 (현재 : " + activityCount + "회) \n");
+        System.out.println("\n🎯 6가지 활동 중 하나를 선택하세요! 🔥 활동은 최대 3번까지 가능합니다 (현재 : " + activityCount + "회) \n");
 //        System.out.println("🔥 활동은 최대 3번까지 가능합니다 (현재 : " + activityCount + "회) \n");
         System.out.println("[1. 코테 💻] [2. 자격증 📚] [3. 동아리 ⌨️] [4. 인턴 🧑‍💼] [5. 운동 🏃‍♂️] [6. 기타 🧠] [7. 뒤로가기 🔙]");
         System.out.print("🔘 활동 선택: ");
@@ -92,9 +92,9 @@ public class ActivityService {
             currentUser.updateStat("PT능력", selected.pt);
             currentUser.updateStat("외국어", selected.eng);
             currentUser.updateStat("건강", selected.health);
-            System.out.println("성공했습니다! " + selected.ok);
+            System.out.println("🎉 성공했습니다! " + selected.ok);
         } else {
-            System.out.println("실패했습니다. " + selected.ng);
+            System.out.println("실패했습니다..😢 " + selected.ng);
         }
     }
 }
