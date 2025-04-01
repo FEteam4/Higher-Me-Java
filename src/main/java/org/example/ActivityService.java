@@ -23,6 +23,7 @@ public class ActivityService {
 
         if (activityChoice >= 1 && activityChoice <= 6) {
             activity(activityChoice, currentUser, sc);
+            UserFileManager.writeUsers(Main.users);         // 사용자 스탯 수정 사항 파일에 반영
             activityCount++;
         } else {
             System.out.println("잘못된 입력입니다.");
@@ -65,7 +66,11 @@ public class ActivityService {
 
         List<ActivityOption> options = ActivityLoader.getOptionsByNo(randomNo, fileName);
 
-        System.out.println("\n[1. " + options.get(0).option + "] vs [2. " + options.get(1).option + "]");
+        int prob1 = (int)(options.get(0).prob * 100);
+        int prob2 = (int)(options.get(1).prob * 100);
+
+        System.out.println("\n[1. " + options.get(0).option + "(성공확률: " + prob1 + "%)]"
+                + " vs [2. " + options.get(1).option + "(성공확률: " + prob2 + "%)]");
         System.out.print("선택 (1 또는 2): ");
         int choice = Integer.parseInt(sc.nextLine());
         ActivityOption selected;

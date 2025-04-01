@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'application' // ← 반드시 있어야 run { ... } 이 작동함
+    id 'application'
 }
 
 group = 'org.example'
@@ -24,8 +24,15 @@ test {
 }
 
 application {
-    // 👇 실행할 메인 클래스 (package 포함해서 정확하게!)
     mainClass = 'org.example.Main'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': application.mainClass.get()
+        )
+    }
 }
 
 run {

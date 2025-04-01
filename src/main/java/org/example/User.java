@@ -41,7 +41,7 @@ public class User {
 
     public User(String name, String gender) {
         this.name = name;
-        this.gender = gender;
+        this.gender = gender.toLowerCase();
         this.stats = new HashMap<>();
 
         // 명시적으로 키 설정
@@ -53,7 +53,7 @@ public class User {
         stats.put("건강", 100);
     }
 
-    // 스탯 업데이트
+    // ✅ 문자열 키 기반으로 스탯 업데이트
     public void updateStat(String key, int value) {
         if (stats.containsKey(key)) {
             int current = stats.get(key);
@@ -72,6 +72,24 @@ public class User {
         }
         System.out.println("실패 횟수: " + failCount);
         System.out.println("합격 여부: " + (success ? "합격" : "미합격"));
+    }
+
+    public boolean isFailed(Map<String, Integer> cutoff) {
+        for (Map.Entry<String, Integer> entry : cutoff.entrySet()) {
+            // cutoff를 넘지 못하면
+            if (stats.get(entry.getKey()) < entry.getValue()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void addFailCount() {
+        failCount++;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
 //    public void showSummary() {
