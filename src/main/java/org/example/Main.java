@@ -165,19 +165,28 @@ public class Main {
 
     // 랭킹 함수
     public static void showUserRanking(List<User> users) {
+        final String RESET = "\u001B[0m";
+        final String CYAN = "\u001B[36m";
+        final String GREEN = "\u001B[32m";
+        final String YELLOW = "\u001B[33m";
+        final String RED = "\u001B[31m";
+
         List<User> successfulUsers = users.stream()
                 .filter(User::isSuccess)
                 .sorted(Comparator
                         .comparingInt(User::getTotalStats).reversed()
-                        .thenComparingInt(User::getFailCount)) // 실패 횟수가 적을수록 우선
+                        .thenComparingInt(User::getFailCount)) // 실패 횟수 적을수록 우선
                 .toList();
 
         if (successfulUsers.isEmpty()) {
-            System.out.println("✅ 아직 합격한 유저가 없습니다.");
+            System.out.println(GREEN + "✅ 아직 합격한 유저가 없습니다." + RESET);
             return;
         }
 
-        System.out.println("🎖️ [합격 유저 순위]");
+        int width = 50;
+        System.out.println(CYAN + "╔" + "═".repeat(width - 2) + "╗" + RESET);
+        printCenter(width, CYAN + "🎖️ [합격 유저 순위 TOP " + successfulUsers.size() + "] 🎖️" + RESET);
+
         int rank = 1;
         for (User user : successfulUsers) {
             String medal = switch (rank) {
@@ -187,10 +196,39 @@ public class Main {
                 default -> rank + "위";
             };
 
-            System.out.println(medal + " - " + user.getName() +
-                    " | 총합 스탯: " + user.getTotalStats() +
-                    " | 실패 횟수: " + user.getFailCount());
+            String line = medal + "  " + GREEN + user.getName() + RESET +
+                    " | 총합 스탯: " + YELLOW + user.getTotalStats() + RESET +
+                    " | 실패 횟수: " + RED + user.getFailCount() + RESET;
+
+            printCenter(width, line);
             rank++;
         }
+
+        System.out.println(CYAN + "╚" + "═".repeat(width - 2) + "╝" + RESET);
     }
+
+    private static void printCenter(int width, String content) {
+        int pad = (width - visualLength(content)) / 2;
+        System.out.println(" ".repeat(Math.max(0, pad)) + content);
+    }
+
+    private static String stripAnsi(String s) {
+        return s.replaceAll("\u001B\\[[;\\d]*m", "");
+    }
+
+    private static int visualLength(String s) {
+        String noAnsi = stripAnsi(s);
+        int len = 0;
+        for (int i = 0; i < noAnsi.length(); i++) {
+            char ch = noAnsi.charAt(i);
+            if (Character.UnicodeScript.of(ch).name().matches("HAN|HANGUL|HIRAGANA|KATAKANA") ||
+                    Character.UnicodeBlock.of(ch).toString().contains("EMOJI")) {
+                len += 2;
+            } else {
+                len += 1;
+            }
+        }
+        return len;
+    }
+
 }
