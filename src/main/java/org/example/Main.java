@@ -3,8 +3,6 @@ package org.example;
 import org.example.io.LineByLineTextWriter;
 import org.example.io.TextReader;
 import org.example.coding.CodingTest;
-import org.example.io.TypingTextWriter;
-
 import java.util.Comparator;
 import java.util.Scanner;
 import java.util.List;
@@ -23,7 +21,7 @@ public class Main {
 
         while (true) {
             System.out.println("\n=== ☁️ Higher Me! ☁️===");
-            System.out.println("[📋 1️⃣. 메뉴얼] [🔐 2️⃣. 사용자 등록] [💼 3️⃣. 서비스 실행] [🥇 4️⃣. 랭킹 결과] [🛑 5️⃣. 종료]");
+            System.out.println("[📋 1️⃣. 메뉴얼] [🔐 2️⃣. 사용자 등록] [💼 3️⃣. 서비스 실행] [🥇 4️⃣. 결과] [🛑 5️⃣. 종료]");
             String input = TextReader.readLine();
             int choice = Integer.parseInt(input);
             switch (choice) {
@@ -35,6 +33,8 @@ public class Main {
                     break;
                 case 3: // 3. 서비스 실행
                     runService();
+                    // WordQuizGame1.runGame(sc); // 빈칸 뚫은 VER. WordQuizGame1 실행
+                    //CrosswordGame1.run(); // Crossword VER. CrosswordGame1 실행
                     break;
                 case 4: // 4. 랭킹 결과
                     showUserRanking(users);
@@ -48,45 +48,17 @@ public class Main {
         }
     }
 
-//    static void showManual() {
-//
-//        System.out.println("🎯 Higher Me!");
-//        System.out.println("⏳ 채용 공고가 뜨기 10개월 전으로 시간을 되돌립니다..");
-//        System.out.println("⏪ 과거로 이동 중... 준비하세요!");
-//        System.out.println("🕰️ 당신의 여정은 지금부터 시작됩니다.");
-//        System.out.println("🏁 활동을 통해 스펙을 키우고 최종 합격까지 달려가 볼까요?🏃💨️");
-//        System.out.println("🚀 활동 종류: 코딩테스트, 자격증, 동아리, 인턴, 운동, 기타");
-//        System.out.println("📈 각 활동은 능력치를 높이거나 낮출 수 있습니다.");
-//        System.out.println("⚠️ 활동 결과는 랜덤 요소가 포함되어 있으니 주의하세요!");
-//        System.out.println("📝 전형 단계: 서류전형 → 필기전형 → 실무 면접 전형 → 임원 면접 전형");
-//        System.out.println("🍀 앞으로의 행운을 빕니다!");
-//    }
-
-    static void typeEffect(String message, int delay) {
-        for (char c : message.toCharArray()) {
-            System.out.print(c);
-            try {
-                Thread.sleep(delay);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-        System.out.println(); // 줄바꿈
-    }
-
     static void showManual() {
-        typeEffect("🎯 Higher Me!", 50);
-        typeEffect("⏳ 채용 공고가 뜨기 10개월 전으로 시간을 되돌립니다..", 40);
-        typeEffect("⏪ 과거로 이동 중... 준비하세요!", 40);
-        typeEffect("🕰️ 당신의 여정은 지금부터 시작됩니다.", 40);
-        typeEffect("🏁 활동을 통해 스펙을 키우고 최종 합격까지 달려가 볼까요? 🏃💨️", 40);
-        typeEffect("🚀 활동 종류: 코딩테스트, 자격증, 동아리, 인턴, 운동, 기타", 40);
-        typeEffect("📈 각 활동은 능력치를 높이거나 낮출 수 있습니다.", 40);
-        typeEffect("⚠️ 활동 결과는 랜덤 요소가 포함되어 있으니 주의하세요!", 40);
-        typeEffect("📝 전형 단계: 서류전형 → 필기전형 → 실무 면접 전형 → 임원 면접 전형", 40);
-        typeEffect("🍀 앞으로의 행운을 빕니다!", 50);
-    }
 
+        System.out.println("🎯 Higher Me!");
+        System.out.println("활동을 통해 스펙을 키우고 최종 합격을 달성하세요!");
+        System.out.println("🚀 활동 종류: 코딩테스트, 자격증, 동아리, 인턴, 운동, 기타");
+        System.out.println("📈 각 활동은 능력치를 높이거나 낮출 수 있습니다.");
+        System.out.println("⚠️ 활동 결과는 랜덤 요소가 포함되어 있으니 주의하세요!");
+        System.out.println("📝 전형 단계: 서류전형 → 필기전형 → 실무 면접 전형 → 임원 면접 전형");
+        System.out.println("🍀 앞으로의 행운을 빕니다!");
+
+    }
 
     static void registerUser() {
         System.out.print("이름 입력: ");
@@ -116,7 +88,7 @@ public class Main {
            return -1;
        }
         RecruitingProcess process = new RecruitingProcess(
-                new TypingTextWriter(),
+                new LineByLineTextWriter(),
                 currentUser,
                 new CrosswordGame1(),
                 new CodingTest(),

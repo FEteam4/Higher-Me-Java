@@ -20,7 +20,7 @@ public class TypingTextWriter implements TextWriter {
             System.out.print(c);
             System.out.flush();
             try {
-                Thread.sleep(40);
+                Thread.sleep(60);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -28,7 +28,7 @@ public class TypingTextWriter implements TextWriter {
     }
 
     private void waitForEnter() {
-        System.out.print(" ← ⏎ Enter를 눌러 계속...");
+//        System.out.print("← Enter를 눌러 계속...");
         scanner.nextLine(); // 사용자 입력 대기
         clearLine();
     }
