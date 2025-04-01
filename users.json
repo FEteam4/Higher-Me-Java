@@ -2,16 +2,16 @@
   "name" : "rla",
   "gender" : "rla",
   "stats" : {
-    "코테실력" : 70,
-    "외국어" : 54,
-    "건강" : 100,
-    "개발능력" : 40,
-    "CS지식" : 55,
-    "PT능력" : 54
+    "코테실력" : 98,
+    "외국어" : 57,
+    "건강" : 84,
+    "개발능력" : 75,
+    "CS지식" : 80,
+    "PT능력" : 57
   },
-  "failCount" : 1,
+  "failCount" : 2,
   "success" : false,
-  "totalStats" : 373
+  "totalStats" : 451
 }, {
   "name" : "ska",
   "gender" : "ska",
