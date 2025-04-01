@@ -91,7 +91,8 @@ public class Main {
                 new LineByLineTextWriter(),
                 currentUser,
                 new CrosswordGame1(),
-                new CodingTest()
+                new CodingTest(),
+                new QuestionRepository()
         );
         int result = process.run();
         UserFileManager.writeUsers(users);
