@@ -12,7 +12,7 @@ import java.util.List;
 public class UserFileManager {
 
     private static final ObjectMapper mapper = new ObjectMapper();
-    private static final File file = new File("users.json");
+    private static final File file = new File(System.getProperty("user.dir"), "users.json");
 
     // ✅ 사용자 추가
     public static void appendUser(User user) {
