@@ -10,11 +10,11 @@ public class QuestionRepository {
 
     public QuestionRepository() {
         questions1 = new ArrayList<>();
-        questions1.add(new Question("JavaScript에서 'this' 키워드는 무엇을 가리키나요?", List.of("전역 객체", "호출한 객체", "함수 내부의 지역 변수", "모듈 객체"), 1));
-        questions1.add(new Question("시간 복잡도가 가장 효율적인 알고리즘은 무엇인가요?", List.of("선택 정렬", "퀵 정렬", "버블 정렬", "삽입 정렬"), 1));
-        questions1.add(new Question("데이터베이스 정규화의 주요 목적은 무엇인가요?", List.of("중복 데이터 제거", "성능 최적화", "데이터 암호화", "트랜잭션 처리"), 0));
-        questions1.add(new Question("코드를 작성할 때 가장 중요한 원칙은 무엇인가요?", List.of("실행 속도 최적화", "가독성", "최소한의 코드 길이", "기능 확장 가능성"), 1));
-        questions1.add(new Question("HTTP 상태 코드 500은 무엇을 의미하나요?", List.of("클라이언트 오류", "리다이렉트", "서버 오류", "요청 성공"), 2));
+        questions1.add(new Question("자바의 기본 자료형 중 참조형이 아닌 것은 무엇인가요?", List.of("int", "String", "Integer", "List"), 0));
+        questions1.add(new Question("다음 중 오버로딩에 해당하는 것은 무엇인가요?", List.of("동일한 이름의 메서드를 다른 클래스에서 정의하는 것", "메서드를 상속받아 재정의하는 것", "메서드 이름은 같지만 매개변수의 수나 타입이 다른 것", "인터페이스의 메서드를 구현하는 것"), 2));
+        questions1.add(new Question("다음 중 자바에서 static 키워드의 사용 예시로 올바른 것은 무엇인가요?", List.of("객체마다 독립적인 값이 필요한 경우", "클래스 수준에서 공유되는 변수나 메서드를 정의할 때", "외부 클래스에 접근하기 위해 반드시 필요한 경우", "예외 처리를 위해 반드시 선언하는 키워드"), 1));
+        questions1.add(new Question("자바 인터페이스에 대한 설명으로 틀린 것은 무엇인가요?", List.of("다중 구현이 가능하다", "생성자를 가질 수 없다", "변수 선언 시 값을 변경할 수 있다", "메서드는 기본적으로 추상 메서드이다"), 2));
+        questions1.add(new Question("자바에서 null 값을 가질 수 없는 타입은 무엇인가요?", List.of("String", "Integer", "int", "Object"), 2));
 
         questions2 = new ArrayList<>();
         questions2.add(new Question("동료가 마감 기한을 넘겼을 때, 나는?", List.of("동료에게 이유를 물어보고 돕는다.", "상황을 파악하고 도울 방법을 찾는다.", "팀장에게 알리고 해결책을 논의한다.", "다음번엔 주의하라고 조언하고 대신 처리한다."), 0));
