@@ -86,16 +86,16 @@
   "name" : "김",
   "gender" : "m",
   "stats" : {
-    "코테실력" : 50,
-    "외국어" : 50,
+    "코테실력" : 64,
+    "외국어" : 54,
     "건강" : 100,
-    "개발능력" : 50,
-    "CS지식" : 50,
-    "PT능력" : 50
+    "개발능력" : 65,
+    "CS지식" : 75,
+    "PT능력" : 59
   },
-  "failCount" : 0,
+  "failCount" : 2,
   "success" : false,
-  "totalStats" : 350
+  "totalStats" : 417
 }, {
   "name" : "22",
   "gender" : "33",
@@ -155,6 +155,90 @@
 }, {
   "name" : "dd",
   "gender" : "w",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "안녕",
+  "gender" : "남자",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "김",
+  "gender" : "남",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "5",
+  "gender" : "5",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "으아아아아",
+  "gender" : "남",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "손흥민",
+  "gender" : "m",
+  "stats" : {
+    "코테실력" : 55,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 55,
+    "PT능력" : 50
+  },
+  "failCount" : 1,
+  "success" : false,
+  "totalStats" : 360
+}, {
+  "name" : "123",
+  "gender" : "f",
   "stats" : {
     "코테실력" : 50,
     "외국어" : 50,
