@@ -44,13 +44,14 @@ public class RecruitingProcess {
         }
         textWriter.write(Story.INTERVIEW2_PASS.get());
         candidate.setSuccess(true);
-        showEndingScene(); // 예은 추가
+        showFinalResultScene(true); // 예은 추가
         return 0;
     }
 
     private int handleFail(String text) {
         textWriter.write(text);
         candidate.addFailCount();
+        showFinalResultScene(false); // 예은 추가
         System.out.println("[1. 🎟️ 로또 사러가기 (처음으로)] [2. ✍️ 서류부터 다시 쓰기]");
         return readValidAnswer(2);
     }
@@ -124,7 +125,7 @@ public class RecruitingProcess {
         }
     }
 
-    private void showEndingScene() {
+    private void showFinalResultScene(boolean isSuccess) {
         final String RESET = "\u001B[0m";
         final String GREEN = "\u001B[32m";
         final String RED = "\u001B[31m";
@@ -136,9 +137,12 @@ public class RecruitingProcess {
         String genderStr = candidate.getGender().equalsIgnoreCase("m") ? "남자" :
                 candidate.getGender().equalsIgnoreCase("f") ? "여자" : "기타";
 
-        // 위 테두리
+        String title = isSuccess ? "🎉 최종 합격을 축하합니다! 🎉" : "💔 아쉽게도 탈락하셨습니다 💔";
+        String outro = isSuccess ? "🌟 당신의 여정을 응원합니다. 새로운 시작을 기대하세요! 🌟"
+                : "🚪 다음 기회에는 꼭 좋은 결과 있기를 바랍니다. 🙏";
+
         System.out.println(CYAN + "╔" + "═".repeat(width - 2) + "╗" + RESET);
-        printCenter(width, CYAN + "🎉 최종 합격을 축하합니다! 🎉" + RESET); sleep(200);
+        printCenter(width, CYAN + title + RESET); sleep(200);
         printCenter(width, ""); sleep(200);
 
         printCenter(width, "🎓 이름: " + GREEN + candidate.getName() + RESET + "   🚻 성별: " + BLUE + genderStr + RESET); sleep(200);
@@ -158,11 +162,10 @@ public class RecruitingProcess {
         printCenter(width, ""); sleep(200);
         printCenter(width, "💥 실패 횟수: " + RED + candidate.getFailCount() + RESET); sleep(200);
 
-        // 아래 테두리
         System.out.println(CYAN + "╚" + "═".repeat(width - 2) + "╝" + RESET);
         System.out.println();
         sleep(200);
-        System.out.println("🌟 당신의 여정을 응원합니다. 새로운 시작을 기대하세요! 🌟");
+        System.out.println(outro);
     }
 
     private void printCenter(int width, String content) {

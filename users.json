@@ -3,7 +3,7 @@
   "gender" : "rla",
   "stats" : {
     "코테실력" : 100,
-    "외국어" : 90,
+    "외국어" : 95,
     "건강" : 100,
     "개발능력" : 100,
     "CS지식" : 100,
@@ -11,7 +11,7 @@
   },
   "failCount" : 5,
   "success" : true,
-  "totalStats" : 590
+  "totalStats" : 595
 }, {
   "name" : "ska",
   "gender" : "ska",
@@ -351,6 +351,34 @@
 }, {
   "name" : "헤헤",
   "gender" : "f",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "rlarlarlarla",
+  "gender" : "m",
+  "stats" : {
+    "코테실력" : 50,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 50,
+    "PT능력" : 50
+  },
+  "failCount" : 0,
+  "success" : false,
+  "totalStats" : 350
+}, {
+  "name" : "rlarlararlarlarlarlalr",
+  "gender" : "m",
   "stats" : {
     "코테실력" : 50,
     "외국어" : 50,
