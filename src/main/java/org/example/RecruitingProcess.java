@@ -5,8 +5,6 @@ import org.example.io.TextWriter;
 import org.example.coding.CodingTest;
 import java.util.Map;
 
-import static java.lang.Thread.sleep;
-
 public class RecruitingProcess {
 
     private final TextWriter textWriter;
