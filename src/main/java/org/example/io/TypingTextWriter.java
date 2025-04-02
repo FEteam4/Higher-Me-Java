@@ -20,17 +20,19 @@ public class TypingTextWriter implements TextWriter {
             System.out.print(c);
             System.out.flush();
             try {
-                Thread.sleep(60);
+                Thread.sleep(40);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
         }
+        System.out.flush();
     }
 
     private void waitForEnter() {
-//        System.out.print("← Enter를 눌러 계속...");
-        scanner.nextLine(); // 사용자 입력 대기
-        clearLine();
+        System.out.print(" ⏎ Enter를 눌러 계속..");
+        //메인 스레드를 잠시 중단하고 싶어
+        scanner.nextLine();
+//        clearLine();
     }
 
     private void clearLine() {

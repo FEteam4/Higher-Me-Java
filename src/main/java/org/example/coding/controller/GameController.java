@@ -57,7 +57,6 @@ public class GameController {
                     break;
             }
         }
-        outputView.displayEndMessage();
         return true;
     }
 

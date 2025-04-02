@@ -6,13 +6,16 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserFileManager {
 
     private static final ObjectMapper mapper = new ObjectMapper();
-    private static final File file = new File("users.json");
+    private static final File file = loadFile();
 
     // ✅ 사용자 추가
     public static void appendUser(User user) {
@@ -56,4 +59,24 @@ public class UserFileManager {
         return users;
     }
 
+    private static File loadFile() {
+        Path location = null;
+        try {
+            location = Paths.get(Main.class.getProtectionDomain()
+                    .getCodeSource()
+                    .getLocation()
+                    .toURI());
+        } catch (URISyntaxException e) {
+            System.out.println("파일 읽기 실패");
+        }
+
+        // .class일 경우: out/production/xxx/
+        // .jar일 경우: myapp.jar 위치
+        Path projectRoot = location.toFile().isFile()
+                ? location.getParent()        // JAR 실행 시
+                : location.getParent().getParent().getParent(); // 개발 환경일 경우 (out/production/xxx)
+
+        Path filePath = projectRoot.resolve("users.json");
+        return filePath.toFile();
+    }
 }
