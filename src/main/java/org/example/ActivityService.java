@@ -23,15 +23,16 @@ public class ActivityService {
         }
 
         if (activityChoice >= 1 && activityChoice <= 6) {
-            activity(activityChoice, currentUser, sc);
-            UserFileManager.writeUsers(Main.users);         // 사용자 스탯 수정 사항 파일에 반영
-            activityCount++;
+            if (activity(activityChoice, currentUser, sc)) {
+                UserFileManager.writeUsers(Main.users);         // 사용자 스탯 수정 사항 파일에 반영
+                activityCount++;
+            }
         } else {
             System.out.println("⚠️ 잘못된 입력입니다.");
         }
     }
 
-    private static void activity(int activityChoice, User currentUser, Scanner sc) {
+    private static boolean activity(int activityChoice, User currentUser, Scanner sc) {
         String fileName;
         int randomNo;
 
@@ -62,7 +63,7 @@ public class ActivityService {
                 break;
             default:
                 System.out.println("⚠️ 잘못된 선택입니다. ");
-                return;
+                return false;
         }
 
         List<ActivityOption> options = ActivityLoader.getOptionsByNo(randomNo, fileName);
@@ -81,7 +82,7 @@ public class ActivityService {
             selected = options.get(1);
         } else {
             System.out.println("⚠️ 잘못된 선택입니다. 1 또는 2를 입력하세요!");
-            return;
+            return false;
         }
 
         double rand = ThreadLocalRandom.current().nextDouble();
@@ -96,5 +97,7 @@ public class ActivityService {
         } else {
             System.out.println("실패했습니다..😢 " + selected.ng);
         }
+        return true;
     }
+
 }
