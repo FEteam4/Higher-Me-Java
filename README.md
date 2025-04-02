@@ -1,2 +1,1 @@
-# Higher Me Java Application!!
-java java java
+# Higher Me Java Application
