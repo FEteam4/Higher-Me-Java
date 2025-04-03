@@ -24,7 +24,16 @@ public class Main {
         while (true) {
             System.out.println("\n=== ☁️ Higher Me! ☁️===");
             System.out.println("[📋 1️⃣. 메뉴얼] [🔐 2️⃣. 사용자 등록] [💼 3️⃣. 서비스 실행] [🥇 4️⃣. 랭킹 결과] [🛑 5️⃣. 종료]");
-            System.out.print("번호를 입력해주세요: ");
+            System.out.print("👉 번호를 입력하세요");
+
+            try {
+                Thread.sleep(1000); // 1초 대기
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+
+            System.out.print("\r\033[K👉 ");
+
             try {
                 String input = TextReader.readLine();
                 int choice = Integer.parseInt(input);
