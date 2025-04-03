@@ -67,25 +67,27 @@ public class ActivityService {
         }
 
         List<ActivityOption> options = ActivityLoader.getOptionsByNo(randomNo, fileName);
-
+        ActivityOption selected;
+        while(true) {
         int prob1 = (int)(options.get(0).prob * 100);
         int prob2 = (int)(options.get(1).prob * 100);
-
         System.out.println("\n[1. " + options.get(0).option + "(성공확률: " + prob1 + "%)]"
                 + " vs [2. " + options.get(1).option + "(성공확률: " + prob2 + "%)]");
         System.out.print("🖱️ 선택 (1 또는 2): ");
         int choice = Integer.parseInt(sc.nextLine());
-        ActivityOption selected;
-        if (choice == 1) {
-            selected = options.get(0);
-        } else if (choice == 2) {
-            selected = options.get(1);
-        } else {
-            System.out.println("⚠️ 잘못된 선택입니다. 1 또는 2를 입력하세요!");
-            return false;
-        }
+            if (choice == 1) {
+                selected = options.get(0);
+                break;
+            } else if (choice == 2) {
+                selected = options.get(1);
+                break;
+            } else {
+                System.out.println("⚠️ 잘못된 선택입니다.");
 
+            }
+        }
         double rand = ThreadLocalRandom.current().nextDouble();
+
         if (rand <= selected.prob) {
             currentUser.updateStat("개발능력", selected.sw);
             currentUser.updateStat("코테실력", selected.ps);

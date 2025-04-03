@@ -97,11 +97,6 @@ public class User {
         printCenter(width, "");
         printCenter(width, "💥 실패 횟수: " + RED + failCount + RESET);
 
-        String result = success
-                ? "🎉 최종 결과: " + GREEN + "✅ 합격!" + RESET
-                : "😢 최종 결과: " + RED + "❌ 불합격" + RESET;
-        printCenter(width, result);
-
         // 아래 테두리
         System.out.println(CYAN + "╚" + "═".repeat(width - 2) + "╝" + RESET);
     }
