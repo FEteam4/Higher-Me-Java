@@ -13,22 +13,31 @@ public class ActivityService {
             return;
         }
 
-        System.out.println("\n🎯 6가지 활동 중 하나를 선택하세요! 🔥 활동은 최대 3번까지 가능합니다 (현재 : " + activityCount + "회) \n");
-//        System.out.println("🔥 활동은 최대 3번까지 가능합니다 (현재 : " + activityCount + "회) \n");
-        System.out.println("[1. 코테 💻] [2. 자격증 📚] [3. 동아리 ⌨️] [4. 인턴 🧑‍💼] [5. 운동 🏃‍♂️] [6. 기타 🧠] [7. 뒤로가기 🔙]");
-        System.out.print("🔘 활동 선택: ");
-        int activityChoice = Integer.parseInt(sc.nextLine());
-        if (activityChoice == 7) {
-            return;
+        int activityChoice = -1; // 초기화
+
+        while (true) {
+            System.out.println("\n🎯 6가지 활동 중 하나를 선택하세요! 🔥 활동은 최대 3번까지 가능합니다 (현재 : " + activityCount + "회) \n");
+            System.out.println("[1. 코테 💻] [2. 자격증 📚] [3. 동아리 ⌨️] [4. 인턴 🧑‍💼] [5. 운동 🏃‍♂️] [6. 기타 🧠] [7. 뒤로가기 🔙]");
+            System.out.print("🔘 활동 선택: ");
+            try {
+                activityChoice = Integer.parseInt(sc.nextLine());
+                if (activityChoice >= 1 && activityChoice <= 7) {
+                    break; // 올바른 숫자면 반복 종료
+                } else {
+                    System.out.println("⚠️ 1부터 7 사이의 숫자를 입력해주세요.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("⚠️ 숫자만 입력해주세요.");
+            }
         }
 
-        if (activityChoice >= 1 && activityChoice <= 6) {
-            if (activity(activityChoice, currentUser, sc)) {
-                UserFileManager.writeUsers(Main.users);         // 사용자 스탯 수정 사항 파일에 반영
-                activityCount++;
-            }
-        } else {
-            System.out.println("⚠️ 잘못된 입력입니다.");
+        if (activityChoice == 7) {
+            return; // 뒤로가기
+        }
+
+        if (activity(activityChoice, currentUser, sc)) {
+            UserFileManager.writeUsers(Main.users); // 사용자 스탯 저장
+            activityCount++;
         }
     }
 
@@ -68,24 +77,29 @@ public class ActivityService {
 
         List<ActivityOption> options = ActivityLoader.getOptionsByNo(randomNo, fileName);
         ActivityOption selected;
-        while(true) {
-        int prob1 = (int)(options.get(0).prob * 100);
-        int prob2 = (int)(options.get(1).prob * 100);
-        System.out.println("\n[1. " + options.get(0).option + "(성공확률: " + prob1 + "%)]"
-                + " vs [2. " + options.get(1).option + "(성공확률: " + prob2 + "%)]");
-        System.out.print("🖱️ 선택 (1 또는 2): ");
-        int choice = Integer.parseInt(sc.nextLine());
-            if (choice == 1) {
-                selected = options.get(0);
-                break;
-            } else if (choice == 2) {
-                selected = options.get(1);
-                break;
-            } else {
-                System.out.println("⚠️ 잘못된 선택입니다.");
 
+        while (true) {
+            int prob1 = (int)(options.get(0).prob * 100);
+            int prob2 = (int)(options.get(1).prob * 100);
+            System.out.println("\n[1. " + options.get(0).option + "(성공확률: " + prob1 + "%)]"
+                    + " vs [2. " + options.get(1).option + "(성공확률: " + prob2 + "%)]");
+            System.out.print("🖱️ 선택 (1 또는 2): ");
+            try {
+                int choice = Integer.parseInt(sc.nextLine());
+                if (choice == 1) {
+                    selected = options.get(0);
+                    break;
+                } else if (choice == 2) {
+                    selected = options.get(1);
+                    break;
+                } else {
+                    System.out.println("⚠️ 1 또는 2 중에서 선택해주세요.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("⚠️ 숫자를 입력해주세요.");
             }
         }
+
         double rand = ThreadLocalRandom.current().nextDouble();
 
         if (rand <= selected.prob) {
