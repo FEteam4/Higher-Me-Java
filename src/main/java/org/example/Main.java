@@ -125,7 +125,7 @@ public class Main {
 
     static void runService() {
         while (true) {
-            System.out.println("\n[📝 1. 활동] [💼 2. 채용] [📊 3. 사용자 정보(스탯 확인 가능)] [🔙 4. 뒤로가기]");
+            System.out.println("\n[📝 1. 활동] [💼 2. 채용] [📊 3. 사용자 정보(스탯 확인 가능)]");
             System.out.print("📋 메뉴를 선택하세요: ");
             try {
                 int serviceChoice = Integer.parseInt(TextReader.readLine());
@@ -143,8 +143,6 @@ public class Main {
                         if (currentUserIsNull()) return;
                         currentUser.showStats();
                         break;
-                    case 4:
-                        return;
                     default:
                         System.out.println("⚠️ 잘못된 입력입니다.");
                 }
