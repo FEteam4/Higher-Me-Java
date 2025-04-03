@@ -86,16 +86,16 @@
   "name" : "김",
   "gender" : "m",
   "stats" : {
-    "코테실력" : 69,
-    "외국어" : 54,
-    "건강" : 100,
-    "개발능력" : 70,
-    "CS지식" : 80,
-    "PT능력" : 64
+    "코테실력" : 89,
+    "외국어" : 58,
+    "건강" : 90,
+    "개발능력" : 80,
+    "CS지식" : 90,
+    "PT능력" : 73
   },
-  "failCount" : 3,
+  "failCount" : 4,
   "success" : false,
-  "totalStats" : 437
+  "totalStats" : 480
 }, {
   "name" : "22",
   "gender" : "33",
@@ -380,14 +380,42 @@
   "name" : "rlarlararlarlarlarlalr",
   "gender" : "m",
   "stats" : {
-    "코테실력" : 50,
+    "코테실력" : 55,
     "외국어" : 50,
     "건강" : 100,
     "개발능력" : 50,
-    "CS지식" : 50,
+    "CS지식" : 55,
     "PT능력" : 50
   },
-  "failCount" : 0,
+  "failCount" : 1,
   "success" : false,
-  "totalStats" : 350
+  "totalStats" : 360
+}, {
+  "name" : "으아",
+  "gender" : "f",
+  "stats" : {
+    "코테실력" : 55,
+    "외국어" : 50,
+    "건강" : 100,
+    "개발능력" : 50,
+    "CS지식" : 55,
+    "PT능력" : 50
+  },
+  "failCount" : 1,
+  "success" : false,
+  "totalStats" : 360
+}, {
+  "name" : "ㄱ;ㅁ",
+  "gender" : "m",
+  "stats" : {
+    "코테실력" : 68,
+    "외국어" : 65,
+    "건강" : 85,
+    "개발능력" : 63,
+    "CS지식" : 80,
+    "PT능력" : 75
+  },
+  "failCount" : 1,
+  "success" : false,
+  "totalStats" : 436
 } ]
