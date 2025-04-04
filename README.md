@@ -9,7 +9,7 @@
 
 ## 🕹️ 실행 방법
 
-### ✅ 1. IntelliJ IDEA에서 실행
+### ✅ 1. IntelliJ IDEA에서 실행 (권장)
 
 1. `IntelliJ` → `Open` → `Higher-Me-Java` → `build.gradle` 선택
 2. `src/main/java/org.example.Main` 파일 열기
