@@ -78,11 +78,11 @@ java -jar build/libs/HigherMe.jar
 ## 📁 프로젝트 구조
 
 ```
-├── src
-│   └── main
-│       ├── java
-│       │   └── org
-│       │       └── example
+├── 📦src
+│   └── 📂main
+│       ├── 📂java
+│       │   └── 📂org
+│       │       └── 📂example
 │       │           ├── ActivityLoader.java
 │       │           ├── ActivityOption.java
 │       │           ├── ActivityService.java
@@ -94,25 +94,25 @@ java -jar build/libs/HigherMe.jar
 │       │           ├── Story.java
 │       │           ├── User.java
 │       │           ├── UserFileManager.java
-│       │           ├── coding
+│       │           ├── 📂coding
 │       │           │   ├── CodingTest.java
-│       │           │   ├── controller
+│       │           │   ├── 📂controller
 │       │           │   │   └── GameController.java
-│       │           │   ├── domain
+│       │           │   ├── 📂domain
 │       │           │   │   ├── Blank.java
 │       │           │   │   ├── Block.java
 │       │           │   │   ├── BlockManager.java
 │       │           │   │   └── GameBoard.java
-│       │           │   └── view
+│       │           │   └── 📂view
 │       │           │       ├── InputView.java
 │       │           │       └── OutputView.java
-│       │           └── io
+│       │           └── 📂io
 │       │               ├── LineByLineTextWriter.java
 │       │               ├── TextReader.java
 │       │               ├── TextWriter.java
 │       │               └── TypingTextWriter.java
-│       └── resources
-│           └── activity
+│       └── 📂resources
+│           └── 📂activity
 │               ├── certification.json
 │               ├── codingtest.json
 │               ├── exercise.json
