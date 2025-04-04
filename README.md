@@ -9,7 +9,15 @@
 
 ## 🕹️ 실행 방법
 
-### ✅ 1. Git으로 클론 후 실행
+### ✅ 1. IntelliJ IDEA에서 실행
+
+1. `IntelliJ` → `Open` → `Higher-Me-Java` → `build.gradle` 선택
+2. `src/main/java/org.example.Main` 파일 열기
+3. `Main` 클래스에서 ▶ 버튼 눌러 실행
+
+---
+
+### ✅ 2. Git으로 클론 후 실행
 
 ```bash
 git clone https://github.com/FEteam4/Higher-Me-Java.git
@@ -19,14 +27,6 @@ java -jar build/libs/HigherMe-1.0-SNAPSHOT-all.jar
 ```
 
 > 💡 macOS/Linux/Windows PowerShell에서는 `./gradlew shadowJar`, Windows cmd에서는 `gradlew.bat shadowJar` 사용
-
----
-
-### ✅ 2. IntelliJ IDEA에서 실행
-
-1. `IntelliJ` → `Open` → `Higher-Me-Java` → `build.gradle` 선택
-2. `src/main/java/org.example.Main` 파일 열기
-3. `Main` 클래스에서 ▶ 버튼 눌러 실행
 
 ---
 
