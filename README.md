@@ -14,8 +14,8 @@
 ```bash
 git clone https://github.com/FEteam4/Higher-Me-Java.git
 cd Higher-Me-Java
-./gradlew build
-java -jar build/libs/HigherMe.jar
+./gradlew shadowJar
+java -jar build/libs/HigherMe-1.0-SNAPSHOT-all.jar
 ```
 
 > 💡 macOS/Linux에서는 `./gradlew`, Windows에서는 `gradlew.bat` 사용
