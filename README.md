@@ -78,19 +78,47 @@ java -jar build/libs/HigherMe.jar
 ## 📁 프로젝트 구조
 
 ```
-📦 src
- ┣ 📂main
- ┃ ┣ 📂java/org.example
- ┃ ┃ ┣ Main.java
- ┃ ┃ ┣ User.java
- ┃ ┃ ┣ UserFileManager.java
- ┃ ┃ ┣ ActivityLoader.java
- ┃ ┃ ┣ CrosswordGame1.java
- ┃ ┃ ┗ ...
- ┃ ┗ 📂resources
- ┃   ┗ 📂activity
- ┃     ┣ certification.json
- ┃     ┣ health.json
- ┃     ┗ ...
+├── src
+│   └── main
+│       ├── java
+│       │   └── org
+│       │       └── example
+│       │           ├── ActivityLoader.java
+│       │           ├── ActivityOption.java
+│       │           ├── ActivityService.java
+│       │           ├── CrosswordGame.java
+│       │           ├── Main.java
+│       │           ├── Question.java
+│       │           ├── QuestionRepository.java
+│       │           ├── RecruitingProcess.java
+│       │           ├── Story.java
+│       │           ├── User.java
+│       │           ├── UserFileManager.java
+│       │           ├── coding
+│       │           │   ├── CodingTest.java
+│       │           │   ├── controller
+│       │           │   │   └── GameController.java
+│       │           │   ├── domain
+│       │           │   │   ├── Blank.java
+│       │           │   │   ├── Block.java
+│       │           │   │   ├── BlockManager.java
+│       │           │   │   └── GameBoard.java
+│       │           │   └── view
+│       │           │       ├── InputView.java
+│       │           │       └── OutputView.java
+│       │           └── io
+│       │               ├── LineByLineTextWriter.java
+│       │               ├── TextReader.java
+│       │               ├── TextWriter.java
+│       │               └── TypingTextWriter.java
+│       └── resources
+│           └── activity
+│               ├── certification.json
+│               ├── codingtest.json
+│               ├── exercise.json
+│               ├── intern.json
+│               ├── others.json
+│               └── schoolClub.json
+└── users.json
 ```
 
