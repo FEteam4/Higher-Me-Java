@@ -9,7 +9,7 @@
 
 ## 🕹️ 실행 방법
 
-### ✅ 1. Git으로 클론 후 실행 (터미널에서)
+### ✅ 1. Git으로 클론 후 실행
 
 ```bash
 git clone https://github.com/FEteam4/Higher-Me-Java.git
@@ -18,16 +18,15 @@ cd Higher-Me-Java
 java -jar build/libs/HigherMe-1.0-SNAPSHOT-all.jar
 ```
 
-> 💡 macOS/Linux에서는 `./gradlew`, Windows에서는 `gradlew.bat` 사용
+> 💡 macOS/Linux/Windows PowerShell에서는 `./gradlew shadowJar`, Windows cmd에서는 `gradlew.bat shadowJar` 사용
 
 ---
 
 ### ✅ 2. IntelliJ IDEA에서 실행
 
-1. `IntelliJ` → `Open` → `Higher-Me-Java` 폴더 선택
-2. Gradle 프로젝트로 인식되면 자동 설정됨
-3. `src/main/java/org.example.Main` 파일 열기
-4. `Main` 클래스에서 ▶ 버튼 눌러 실행
+1. `IntelliJ` → `Open` → `Higher-Me-Java` → `build.gradle` 선택
+2. `src/main/java/org.example.Main` 파일 열기
+3. `Main` 클래스에서 ▶ 버튼 눌러 실행
 
 ---
 
@@ -63,7 +62,7 @@ java -jar build/libs/HigherMe-1.0-SNAPSHOT-all.jar
 ### 📊 결과 & 랭킹
 - 최종 합격 or 탈락 여부 확인
 - 실패 횟수와 스탯 합계 기준으로 **랭킹 출력**
-- 모든 유저는 JSON 파일로 저장됨
+- 모든 유저는 JSON 파일로 저장됨 (users.json)
 
 ---
 
